@@ -8,8 +8,8 @@ import {
   Image,
   TextInput,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -30,75 +30,78 @@ const HomeScreen: React.FC = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Logo */}
-      <Image
-        source={require('../../assets/burger-king-logo.png')}
-        style={styles.logo}
-      />
+      {/* Scrollable Content */}
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        {/* Logo */}
+        <Image
+          source={require('../../assets/burger-king-logo.png')}
+          style={styles.logo}
+        />
 
-      {/* Title */}
-      <Text style={styles.exploreMenuText}>Explore Our Menu</Text>
+        {/* Title */}
+        <Text style={styles.exploreMenuText}>Explore Our Menu</Text>
 
-      {/* Search Bar */}
-      <TextInput
-        style={styles.searchBar}
-        placeholder="Search..."
-        placeholderTextColor="#5A2D18"
-      />
+        {/* Search Bar */}
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search..."
+          placeholderTextColor="#5A2D18"
+        />
 
-      {/* Categories Heading */}
-      <Text style={styles.categoryHeading}>Categories</Text>
+        {/* Categories Heading */}
+        <Text style={styles.categoryHeading}>Categories</Text>
 
-      {/* Categories Grid */}
-      <View style={styles.gridContainer}>
-        {/* Burgers */}
-        <TouchableOpacity
-          style={styles.categoryCard}
-          onPress={() => handleNavigation('BurgerScreen')}
-        >
-          <Image
-            source={require('../../assets/burgers-category.jpg')}
-            style={styles.categoryImage}
-          />
-          <Text style={styles.categoryText}>Burgers</Text>
-        </TouchableOpacity>
+        {/* Categories Grid */}
+        <View style={styles.gridContainer}>
+          {/* Burgers */}
+          <TouchableOpacity
+            style={styles.categoryCard}
+            onPress={() => handleNavigation('BurgerScreen')}
+          >
+            <Image
+              source={require('../../assets/burgers-category.jpg')}
+              style={styles.categoryImage}
+            />
+            <Text style={styles.categoryText}>Burgers</Text>
+          </TouchableOpacity>
 
-        {/* Wraps */}
-        <TouchableOpacity
-          style={styles.categoryCard}
-          onPress={() => handleNavigation('WrapScreen')}
-        >
-          <Image
-            source={require('../../assets/wraps-category.jpg')}
-            style={styles.categoryImage}
-          />
-          <Text style={styles.categoryText}>Wraps</Text>
-        </TouchableOpacity>
+          {/* Wraps */}
+          <TouchableOpacity
+            style={styles.categoryCard}
+            onPress={() => handleNavigation('WrapScreen')}
+          >
+            <Image
+              source={require('../../assets/wraps-category.jpg')}
+              style={styles.categoryImage}
+            />
+            <Text style={styles.categoryText}>Wraps</Text>
+          </TouchableOpacity>
 
-        {/* Desserts */}
-        <TouchableOpacity
-          style={styles.categoryCard}
-          onPress={() => handleNavigation('DessertScreen')}
-        >
-          <Image
-            source={require('../../assets/desserts-category.jpg')}
-            style={styles.categoryImage}
-          />
-          <Text style={styles.categoryText}>Desserts</Text>
-        </TouchableOpacity>
+          {/* Desserts */}
+          <TouchableOpacity
+            style={styles.categoryCard}
+            onPress={() => handleNavigation('DessertScreen')}
+          >
+            <Image
+              source={require('../../assets/desserts-category.jpg')}
+              style={styles.categoryImage}
+            />
+            <Text style={styles.categoryText}>Desserts</Text>
+          </TouchableOpacity>
 
-        {/* Drinks */}
-        <TouchableOpacity
-          style={styles.categoryCard}
-          onPress={() => handleNavigation('DrinkScreen')}
-        >
-          <Image
-            source={require('../../assets/beverages-category.jpg')}
-            style={styles.categoryImage}
-          />
-          <Text style={styles.categoryText}>Drinks</Text>
-        </TouchableOpacity>
-      </View>
+          {/* Drinks */}
+          <TouchableOpacity
+            style={styles.categoryCard}
+            onPress={() => handleNavigation('DrinkScreen')}
+          >
+            <Image
+              source={require('../../assets/beverages-category.jpg')}
+              style={styles.categoryImage}
+            />
+            <Text style={styles.categoryText}>Drinks</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -113,8 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     paddingHorizontal: 20,
     backgroundColor: '#6c352a',
-    marginTop: 0,
-    padding: 10
+    padding: 10,
   },
   icon: {
     marginLeft: 15,
@@ -167,7 +169,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
+    marginBottom: 20, // Vertical spacing
+    marginHorizontal: 10, // Horizontal spacing
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.2,
